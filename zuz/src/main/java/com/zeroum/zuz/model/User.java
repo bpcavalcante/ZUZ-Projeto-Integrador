@@ -1,6 +1,6 @@
 package com.zeroum.zuz.model;
 
-import java.util.Date;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,10 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -37,25 +34,16 @@ public class User {
 	@Size(min = 11, max = 11)
 	private String cpf;
 	
-	//@Temporal(TemporalType.DATE)
-	private Date datanascimento;
-	
 
 	@NotNull
 	@Size(min = 6)
 	private String senha;
 	
-	@NotNull
-	private String tipousuario;
+	private String foto;
+
 	
 	
-	@Size(max = 10)
-	private String crm;
-	
-	
-	@OneToOne
-	@JsonIgnoreProperties("usuario")
-	private Endereco endereco;
+
 	
 	@OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
@@ -88,13 +76,8 @@ public class User {
 		this.cpf = cpf;
 	}
 
-	public Date getDatanascimento() {
-		return datanascimento;
-	}
 
-	public void setDatanascimento(Date datanascimento) {
-		this.datanascimento = datanascimento;
-	}
+
 
 	public String getSenha() {
 		return senha;
@@ -104,29 +87,7 @@ public class User {
 		this.senha = senha;
 	}
 
-	public String getTipousuario() {
-		return tipousuario;
-	}
-
-	public void setTipousuario(String tipousuario) {
-		this.tipousuario = tipousuario;
-	}
-
-	public String getCrm() {
-		return crm;
-	}
-
-	public void setCrm(String crm) {
-		this.crm = crm;
-	}
-
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+	
 
 	public List<Postagem> getPostagem() {
 		return postagem;
@@ -151,6 +112,16 @@ public class User {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+	
+	
 
 
 }

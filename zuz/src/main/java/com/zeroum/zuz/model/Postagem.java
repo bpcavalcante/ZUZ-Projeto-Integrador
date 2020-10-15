@@ -41,6 +41,15 @@ public class Postagem {
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
+	
+	
+	private String foto;
+	
+	
+	private String video;
+	
+	
+	private String artigo;
 
 	public long getId() {
 		return id;
@@ -88,6 +97,30 @@ public class Postagem {
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public String getArtigo() {
+		return artigo;
+	}
+
+	public void setArtigo(String artigo) {
+		this.artigo = artigo;
 	}
 	
 	
