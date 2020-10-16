@@ -38,6 +38,11 @@ public class TemaController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Tema>> getByName(@PathVariable String nometema){
+		return ResponseEntity.ok(repository.findAllByNometemaContainingIgnoreCase(nometema));
+	}
+
 	@PostMapping
 	public ResponseEntity<Tema> post(@RequestBody Tema tema){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
